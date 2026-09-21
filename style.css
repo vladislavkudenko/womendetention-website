@@ -545,12 +545,21 @@ html:not(.js) .nav-toggle {
   transition: border-color 0.15s, color 0.15s;
 }
 
+.social-list a {
+  gap: 8px;
+}
+
+.social-icon {
+  flex-shrink: 0;
+}
+
 .social-list a:hover {
   color: var(--color-accent-2);
   border-color: var(--color-accent-2);
 }
 
 .contact-label {
+  margin-top: 24px;
   margin-bottom: 12px;
   font-size: 1rem;
   color: var(--color-muted);
@@ -585,6 +594,27 @@ html:not(.js) .nav-toggle {
   display: flex;
   flex-direction: column;
   gap: 16px;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Round icon button in the footer (44px — easy to tap) */
+.footer-social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+}
+
+.footer-social:hover {
+  border-color: #ffffff;
 }
 
 .footer-legal {

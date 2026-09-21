@@ -1,0 +1,10 @@
+<!-- Placeholder illustration for the About section. Replace with a real photo (e.g. about.jpg) and update the <img> in both HTML files. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 420" width="560" height="420">
+  <rect width="560" height="420" rx="18" fill="#fce9eb"/>
+  <circle cx="455" cy="85" r="46" fill="#eaeffa"/>
+  <circle cx="95" cy="340" r="64" fill="#f8d6da"/>
+  <!-- heart -->
+  <path d="M280 250s-70-43-70-92a37 37 0 0 1 70-17 37 37 0 0 1 70 17c0 49-70 92-70 92z" fill="#db5060"/>
+  <!-- hands -->
+  <path d="M150 300c30-8 62 2 88 20l42 22 42-22c26-18 58-28 88-20v40c-40-6-70 8-96 26l-34 20-34-20c-26-18-56-32-96-26z" fill="#2e4ea5"/>
+</svg>

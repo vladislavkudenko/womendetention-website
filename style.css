@@ -1,0 +1,799 @@
+/* ==========================================================================
+   Womendetention — shared stylesheet (used by /index.html and /ru/index.html)
+   Mobile-first: base styles are for phones, @media (min-width: ...) adds
+   desktop layout.
+   ========================================================================== */
+
+/* ---------- 1. Design tokens — change colors/sizes here ---------- */
+:root {
+  --color-text: #1a1a1a;          /* main dark */
+  --color-muted: #4a4a4a;         /* secondary text (contrast ~9:1) */
+  --color-bg: #fffcf8;            /* page background — very light cream */
+  --color-bg-alt: #fbf4ee;        /* alternate section background (warmer cream) */
+  --color-border: #ece3db;
+
+  /* Primary accent — coral rgb(219, 80, 96). Used for button FILLS only:
+     white text on it is ~3.9:1, OK for large bold text (buttons are 19px bold). */
+  --color-accent: #db5060;
+  --color-accent-dark: #c23c4d;   /* button hover */
+  --color-accent-text: #b83a4b;   /* coral for small text (~5.5:1 on cream) */
+  --color-accent-soft: #fce9eb;   /* soft coral background (donate block) */
+
+  /* Secondary accent — blue rgb(46, 78, 165). Links, secondary buttons,
+     icons, focus outline (~7.6:1 on white). */
+  --color-accent-2: #2e4ea5;
+  --color-accent-2-dark: #233d85;
+  --color-accent-2-soft: #eaeffa;
+
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --radius: 12px;
+  --max-width: 1120px;
+  --gutter: 20px;
+  --header-height: 68px;
+}
+
+/* ---------- 2. Base / reset ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 1.0625rem; /* 17px */
+  line-height: 1.65;
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.15;
+  margin: 0 0 0.5em;
+  letter-spacing: -0.01em;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+a {
+  color: var(--color-accent-2);
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  color: var(--color-accent-2-dark);
+}
+
+/* Visible keyboard focus for every link, button and control */
+:focus-visible {
+  outline: 3px solid var(--color-accent-2);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Anchored sections are not hidden under the sticky header */
+section[id] {
+  scroll-margin-top: var(--header-height);
+}
+
+/* Sections receive focus from script.js after a menu click — no outline box */
+[tabindex="-1"]:focus {
+  outline: none;
+}
+
+/* Text for screen readers only (e.g. "opens in a new tab") */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* "Skip to content" link — appears only on keyboard focus */
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: -100px;
+  z-index: 100;
+  padding: 10px 16px;
+  background: var(--color-text);
+  color: #fff;
+  border-radius: 8px;
+}
+
+.skip-link:focus {
+  top: 12px;
+  color: #fff;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* ---------- 3. Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;            /* comfortable finger target */
+  padding: 12px 28px;
+  font: inherit;
+  font-size: 1.1875rem;        /* 19px bold = "large text" for contrast rules */
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.btn--primary {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+.btn--primary:hover {
+  background: var(--color-accent-dark);
+  color: #fff;
+}
+
+.btn--secondary {
+  background: transparent;
+  color: var(--color-accent-2);
+  border-color: var(--color-accent-2);
+}
+
+.btn--secondary:hover {
+  background: var(--color-accent-2);
+  color: #fff;
+}
+
+/* ---------- 4. Header ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 252, 248, 0.96);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.header-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  min-height: var(--header-height);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  flex: 1 1 0;      /* takes free space and shrinks first, so the */
+  min-width: 0;     /* header never wraps even with a long name  */
+  color: var(--color-text);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.0625rem;
+  line-height: 1.2;
+}
+
+.brand:hover {
+  color: var(--color-text);
+}
+
+.brand img {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 50%;   /* the emblem is round — hide the white corners */
+}
+
+/* Language switcher: EN | RU */
+.lang-switch {
+  display: flex;
+  align-items: center;
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.lang-switch a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0 6px;
+  color: var(--color-muted);
+  text-decoration: none;
+}
+
+.lang-switch a:hover {
+  color: var(--color-text);
+}
+
+/* Active language */
+.lang-switch a[aria-current="page"] {
+  color: var(--color-accent-2);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+}
+
+.lang-switch .divider {
+  color: var(--color-border);
+}
+
+/* Mobile menu button (hamburger) */
+.nav-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: none;
+  border: 0;
+  border-radius: 8px;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.nav-toggle-bar,
+.nav-toggle-bar::before,
+.nav-toggle-bar::after {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.nav-toggle-bar {
+  position: relative;
+}
+
+.nav-toggle-bar::before,
+.nav-toggle-bar::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.nav-toggle-bar::before { top: -7px; }
+.nav-toggle-bar::after  { top: 7px; }
+
+/* Hamburger turns into an "X" when menu is open */
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar { background: transparent; }
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar::before { transform: translateY(7px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar::after  { transform: translateY(-7px) rotate(-45deg); }
+
+/* Navigation — mobile. Without JS it is a plain row under the logo;
+   with JS it becomes a dropdown opened by the menu button. */
+.site-nav {
+  order: 10;
+  width: 100%;
+}
+
+.js .site-nav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+}
+
+/* Without JS the menu button is useless — hide it */
+html:not(.js) .nav-toggle {
+  display: none;
+}
+
+/* Hidden only when JS works; without JS the menu just stays visible */
+.js .site-nav:not(.is-open) {
+  display: none;
+}
+
+.site-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 8px var(--gutter) 16px;
+}
+
+.site-nav a {
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  color: var(--color-text);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.site-nav li:last-child a {
+  border-bottom: 0;
+}
+
+.site-nav a:hover {
+  color: var(--color-accent-2);
+}
+
+/* ---------- 5. Sections (shared) ---------- */
+.section {
+  padding: 64px 0;
+}
+
+.section--alt {
+  background: var(--color-bg-alt);
+}
+
+.section-title {
+  font-size: clamp(1.75rem, 4.5vw, 2.5rem);
+}
+
+.section-lead {
+  max-width: 640px;
+  color: var(--color-muted);
+  font-size: 1.125rem;
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: var(--color-accent-text);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ---------- 6. Hero ---------- */
+.hero {
+  padding: 40px 0 72px;
+}
+
+.hero-grid {
+  display: grid;
+  gap: 32px;
+  align-items: center;
+}
+
+/* Round emblem. Mobile: centered above the headline */
+.hero-emblem {
+  width: min(220px, 60vw);
+  margin: 0 auto;
+  border-radius: 50%;
+  box-shadow: 0 12px 32px rgba(46, 78, 165, 0.15);
+}
+
+.hero h1 {
+  max-width: 16ch;
+  font-size: clamp(2.25rem, 8vw, 4.25rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.hero-subtitle {
+  max-width: 580px;
+  margin-bottom: 32px;
+  color: var(--color-muted);
+  font-size: clamp(1.125rem, 2.5vw, 1.3125rem);
+}
+
+.hero-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ---------- 7. About ---------- */
+.about-grid {
+  display: grid;
+  gap: 40px;
+  align-items: center;
+}
+
+.about-text p {
+  color: var(--color-muted);
+}
+
+.about-image {
+  border-radius: var(--radius);
+  width: 100%;
+}
+
+/* ---------- 8. What we do — cards ---------- */
+.cards {
+  display: grid;
+  gap: 20px;
+  margin: 40px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card {
+  padding: 28px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+.card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  margin-bottom: 20px;
+  color: var(--color-accent-2);
+  background: var(--color-accent-2-soft);
+  border-radius: 50%;
+}
+
+.card-icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.card h3 {
+  font-size: 1.25rem;
+}
+
+.card p {
+  margin: 0;
+  color: var(--color-muted);
+}
+
+/* ---------- 9. Donate ---------- */
+.donate-box {
+  padding: 40px 16px;
+  background: var(--color-accent-soft);
+  border-radius: calc(var(--radius) * 1.5);
+  text-align: center;
+}
+
+.donate-box .section-lead {
+  margin: 0 auto 32px;
+}
+
+.donate-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+.donate-note {
+  margin: 24px 0 0;
+  color: var(--color-muted);
+  font-size: 0.9375rem;
+}
+
+/* ---------- 10. Contact / Social ---------- */
+.contact-grid {
+  display: grid;
+  gap: 32px;
+}
+
+.contact-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.contact-list li {
+  margin-bottom: 8px;
+}
+
+.contact-list a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.social-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.social-list a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 18px;
+  color: var(--color-text);
+  text-decoration: none;
+  font-weight: 600;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.social-list a:hover {
+  color: var(--color-accent-2);
+  border-color: var(--color-accent-2);
+}
+
+.contact-label {
+  margin-bottom: 12px;
+  font-size: 1rem;
+  color: var(--color-muted);
+  font-weight: 600;
+}
+
+/* ---------- 11. Footer ---------- */
+.site-footer {
+  padding: 40px 0;
+  color: #d4d4d4;
+  background: var(--color-text);
+  font-size: 0.9375rem;
+}
+
+.site-footer p {
+  margin: 0 0 6px;
+}
+
+.site-footer a {
+  color: #ffffff;
+}
+
+.site-footer a:hover {
+  color: #f6c9ce;
+}
+
+.site-footer :focus-visible {
+  outline-color: #ffffff;
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer-legal {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* ---------- 12. Simple content page (privacy.html) ---------- */
+.page-content {
+  max-width: 720px;
+  padding-top: 56px;
+  padding-bottom: 72px;
+}
+
+/* ==========================================================================
+   Very small phones (iPhone SE 1st gen, small Androids: 320–359px)
+   ========================================================================== */
+@media (max-width: 359px) {
+  :root {
+    --gutter: 16px;
+  }
+
+  .header-inner {
+    gap: 6px;
+  }
+
+  .brand {
+    gap: 8px;
+    font-size: 0.875rem;
+  }
+
+  .brand img {
+    width: 36px;
+    height: 36px;
+  }
+
+  .lang-switch a {
+    min-width: 36px;
+    padding: 0 2px;
+  }
+
+  .btn {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+/* ==========================================================================
+   Larger screens
+   ========================================================================== */
+
+/* Tablet and up */
+@media (min-width: 640px) {
+  :root {
+    --gutter: 32px;
+  }
+
+  .hero-actions,
+  .donate-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .donate-actions {
+    max-width: none;
+    justify-content: center;
+  }
+
+  .donate-box {
+    padding: 56px 40px;
+  }
+}
+
+/* Tablet (portrait iPad and up): two-column hero, three cards in a row */
+@media (min-width: 768px) {
+  .hero {
+    padding: 72px 0 88px;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr minmax(240px, 34%);
+    gap: 48px;
+  }
+
+  /* Emblem moves to the right of the text */
+  .hero-emblem {
+    order: 2;
+    width: 100%;
+    max-width: 420px;
+  }
+
+  /* Headline a bit smaller while the emblem shares the row */
+  .hero h1 {
+    font-size: clamp(2.5rem, 5.2vw, 4.25rem);
+  }
+
+  /* Cards: icon on the left, text on the right */
+  .card {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 20px;
+    align-items: start;
+  }
+
+  .card-icon {
+    grid-row: span 2;
+    margin-bottom: 0;
+  }
+
+  .about-grid {
+    grid-template-columns: 1.2fr 1fr;
+    gap: 48px;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Desktop */
+@media (min-width: 900px) {
+  :root {
+    --header-height: 76px;
+  }
+
+  .nav-toggle {
+    display: none;
+  }
+
+  /* Nav becomes an inline row, always visible */
+  .site-nav,
+  .js .site-nav,
+  .js .site-nav:not(.is-open) {
+    position: static;
+    display: block;
+    width: auto;
+    background: none;
+    border: 0;
+    box-shadow: none;
+  }
+
+  .site-nav ul {
+    display: flex;
+    gap: 28px;
+    padding: 0;
+  }
+
+  .site-nav a {
+    min-height: 44px;
+    border: 0;
+    font-size: 0.9375rem;
+  }
+
+  /* Order in header: brand · nav · language switch */
+  .site-nav { order: 2; margin-right: 16px; }
+  .lang-switch { order: 3; }
+
+  .section {
+    padding: 96px 0;
+  }
+
+  .hero {
+    padding: 96px 0 112px;
+  }
+
+  .hero-grid {
+    gap: 64px;
+  }
+
+  .about-grid {
+    grid-template-columns: 1.1fr 1fr;
+    gap: 64px;
+  }
+
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .card {
+    display: block;
+    padding: 28px;
+  }
+
+  .card-icon {
+    margin-bottom: 20px;
+  }
+
+  .footer-inner {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+}
+
+/* Wide screens (large laptops, desktop monitors) */
+@media (min-width: 1440px) {
+  :root {
+    --max-width: 1240px;
+  }
+
+  body {
+    font-size: 1.125rem;
+  }
+}
+
+/* Respect users who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}

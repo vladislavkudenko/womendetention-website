@@ -629,6 +629,43 @@ html:not(.js) .nav-toggle {
   padding-bottom: 72px;
 }
 
+.page-content h1 {
+  font-size: clamp(2rem, 6vw, 2.75rem);
+}
+
+.page-content h2 {
+  margin-top: 2em;
+  font-size: 1.375rem;
+}
+
+.page-content ul {
+  padding-left: 1.25em;
+}
+
+.page-content li {
+  margin-bottom: 0.4em;
+}
+
+/* "Back to home" + other language, on one line */
+.page-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 24px;
+  margin-bottom: 32px;
+}
+
+.page-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+.page-meta {
+  color: var(--color-muted);
+  font-size: 0.9375rem;
+}
+
 /* ==========================================================================
    Very small phones (iPhone SE 1st gen, small Androids: 320–359px)
    ========================================================================== */

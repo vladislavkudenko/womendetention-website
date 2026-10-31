@@ -416,19 +416,12 @@ html:not(.js) .nav-toggle {
 }
 
 /* ---------- 7. About ---------- */
-.about-grid {
-  display: grid;
-  gap: 40px;
-  align-items: center;
+.about-text-only {
+  max-width: 760px;   /* comfortable reading width without an image */
 }
 
 .about-text p {
   color: var(--color-muted);
-}
-
-.about-image {
-  border-radius: var(--radius);
-  width: 100%;
 }
 
 /* ---------- 8. What we do — cards ---------- */
@@ -491,6 +484,26 @@ html:not(.js) .nav-toggle {
   gap: 12px;
   max-width: 360px;
   margin: 0 auto;
+}
+
+.donate-qr {
+  margin: 32px 0 0;
+}
+
+.donate-qr figcaption {
+  margin-bottom: 12px;
+  color: var(--color-muted);
+  font-size: 0.9375rem;
+}
+
+.donate-qr img {
+  width: 180px;
+  height: 180px;
+  margin: 0 auto;
+  padding: 12px;
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
 }
 
 .donate-note {
@@ -761,11 +774,6 @@ html:not(.js) .nav-toggle {
     margin-bottom: 0;
   }
 
-  .about-grid {
-    grid-template-columns: 1.2fr 1fr;
-    gap: 48px;
-  }
-
   .contact-grid {
     grid-template-columns: 1fr 1fr;
   }
@@ -818,11 +826,6 @@ html:not(.js) .nav-toggle {
   }
 
   .hero-grid {
-    gap: 64px;
-  }
-
-  .about-grid {
-    grid-template-columns: 1.1fr 1fr;
     gap: 64px;
   }
 

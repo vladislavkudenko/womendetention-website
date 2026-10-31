@@ -82,7 +82,7 @@
 
     <!-- ================= ABOUT / MISSION ================= -->
     <section class="section section--alt" id="about" aria-labelledby="about-title">
-      <div class="container about-grid">
+      <div class="container about-text-only">
         <div class="about-text">
           <span class="eyebrow">Our mission</span>
           <h2 class="section-title" id="about-title">About us</h2>
@@ -99,9 +99,6 @@
             forgotten.
           </p>
         </div>
-        <!-- Zelle donation poster (EN). To update the details, replace assets/zelle-en.jpg and this alt text. -->
-        <img class="about-image" src="assets/zelle-en.jpg" width="1000" height="1000" loading="lazy"
-             alt="Donate via Zelle. Send your donation to dima112345@gmail.com. Before sending, make sure you see “Enrolled as Dzmitry Shchepko”. In the payment memo, please write “Donation”. Thank you for your support!">
       </div>
     </section>
 
@@ -148,15 +145,23 @@
           <h2 class="section-title" id="donate-title">Support our work</h2>
           <p class="section-lead">
             Every donation, big or small, goes directly to supporting women
-            in detention. Donations are accepted via PayPal.
+            in detention. Donations are collected through Zeffy — 100% of your
+            gift reaches our work, and you receive a tax receipt.
           </p>
+          <!-- Donation form link and QR code. If the link changes, replace assets/donate-qr.png too. -->
           <div class="donate-actions">
-            <a class="btn btn--primary" href="https://www.paypal.com/paypalme/elenasunusa" target="_blank" rel="noopener noreferrer">
-              Donate via PayPal<span class="sr-only"> (opens in a new tab)</span>
+            <a class="btn btn--primary" href="https://www.zeffy.com/en-US/donation-form/donate-to-women-in-detention" target="_blank" rel="noopener noreferrer">
+              Donate<span class="sr-only"> (opens in a new tab)</span>
             </a>
-            <!-- Other payment methods (Donorbox, Stripe) can be added here later — copy the line above. -->
           </div>
-          <p class="donate-note">Payments are processed securely by PayPal.</p>
+          <figure class="donate-qr">
+            <figcaption>Or scan this code with your phone camera:</figcaption>
+            <a href="https://www.zeffy.com/en-US/donation-form/donate-to-women-in-detention" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+              <img src="assets/donate-qr.png" width="1024" height="1024" loading="lazy"
+                   alt="QR code leading to our donation form on Zeffy">
+            </a>
+          </figure>
+          <p class="donate-note">Payments are processed securely by Zeffy.</p>
         </div>
       </div>
     </section>
@@ -168,7 +173,6 @@
         <p class="section-lead">Want to volunteer, write letters or partner with us? Write to us.</p>
         <ul class="contact-list">
           <li><a href="mailto:elena@womendetention.com">elena@womendetention.com</a></li>
-          <li><a href="mailto:kseniia@womendetention.com">kseniia@womendetention.com</a></li>
         </ul>
 
         <p class="contact-label">Follow us</p>

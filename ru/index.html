@@ -83,7 +83,7 @@
 
     <!-- ================= О НАС / МИССИЯ ================= -->
     <section class="section section--alt" id="about" aria-labelledby="about-title">
-      <div class="container about-grid">
+      <div class="container about-text-only">
         <div class="about-text">
           <span class="eyebrow">Наша миссия</span>
           <h2 class="section-title" id="about-title">О нас</h2>
@@ -100,9 +100,6 @@
             о ней помнят.
           </p>
         </div>
-        <!-- Постер для пожертвований через Zelle (RU). Чтобы обновить реквизиты, замени assets/zelle-ru.jpg и этот alt. -->
-        <img class="about-image" src="../assets/zelle-ru.jpg" width="1000" height="1000" loading="lazy"
-             alt="Пожертвуйте через Zelle. Отправьте ваше пожертвование на dima112345@gmail.com. Перед отправкой убедитесь, что видите «Enrolled as Dzmitry Shchepko». В назначении платежа напишите «Donation». Спасибо за вашу поддержку!">
       </div>
     </section>
 
@@ -149,15 +146,24 @@
           <h2 class="section-title" id="donate-title">Поддержите нашу работу</h2>
           <p class="section-lead">
             Каждое пожертвование, большое или маленькое, напрямую идёт
-            на поддержку женщин под стражей. Пожертвования принимаются через PayPal.
+            на поддержку женщин под стражей. Пожертвования принимаются через
+            Zeffy: до нашей работы доходит 100% суммы, а вы получаете квитанцию
+            для налоговой.
           </p>
+          <!-- Ссылка на форму пожертвований и QR-код. Если ссылка изменится, замени и assets/donate-qr.png. -->
           <div class="donate-actions">
-            <a class="btn btn--primary" href="https://www.paypal.com/paypalme/elenasunusa" target="_blank" rel="noopener noreferrer">
-              Пожертвовать через PayPal<span class="sr-only"> (откроется в новой вкладке)</span>
+            <a class="btn btn--primary" href="https://www.zeffy.com/en-US/donation-form/donate-to-women-in-detention" target="_blank" rel="noopener noreferrer">
+              Пожертвовать<span class="sr-only"> (откроется в новой вкладке)</span>
             </a>
-            <!-- Другие способы оплаты (Donorbox, Stripe) можно добавить сюда позже — скопируй строку выше. -->
           </div>
-          <p class="donate-note">Платежи безопасно обрабатываются PayPal.</p>
+          <figure class="donate-qr">
+            <figcaption>Или отсканируйте код камерой телефона:</figcaption>
+            <a href="https://www.zeffy.com/en-US/donation-form/donate-to-women-in-detention" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+              <img src="../assets/donate-qr.png" width="1024" height="1024" loading="lazy"
+                   alt="QR-код, ведущий на нашу форму пожертвований на Zeffy">
+            </a>
+          </figure>
+          <p class="donate-note">Платежи безопасно обрабатываются Zeffy.</p>
         </div>
       </div>
     </section>
@@ -169,7 +175,6 @@
         <p class="section-lead">Хотите стать волонтёром, писать письма или сотрудничать с нами? Напишите нам.</p>
         <ul class="contact-list">
           <li><a href="mailto:elena@womendetention.com">elena@womendetention.com</a></li>
-          <li><a href="mailto:kseniia@womendetention.com">kseniia@womendetention.com</a></li>
         </ul>
 
         <p class="contact-label">Мы в соцсетях</p>
